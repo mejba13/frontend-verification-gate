@@ -1,5 +1,9 @@
 # frontend-verification-gate
 
+[![smoke](https://github.com/mejba13/frontend-verification-gate/actions/workflows/smoke.yml/badge.svg)](https://github.com/mejba13/frontend-verification-gate/actions/workflows/smoke.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
+
 A Claude skill that stops "the edit applied" from being reported as "the UI works."
 
 A clean diff proves a file changed. It proves nothing about whether the button renders, the
