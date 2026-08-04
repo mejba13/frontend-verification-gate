@@ -1,0 +1,34 @@
+name: smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+          npm install axe-core --no-save
+
+      - name: Run smoke test
+        run: bash tests/smoke_test.sh
+
+      - name: Upload verification artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-output
+          path: /tmp/tmp.*/
+          if-no-files-found: ignore
