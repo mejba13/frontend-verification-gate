@@ -1,0 +1,51 @@
+[
+  {
+    "action": "assert_visible",
+    "selector": "[data-testid=like-button]",
+    "name": "like button renders"
+  },
+  {
+    "action": "eval",
+    "value": "document.documentElement.scrollWidth - document.documentElement.clientWidth",
+    "name": "horizontal overflow px — expect 0"
+  },
+  {
+    "action": "click",
+    "selector": "[data-testid=like-button]",
+    "name": "click like"
+  },
+  {
+    "action": "assert_text",
+    "selector": "[data-testid=like-count]",
+    "value": "1",
+    "name": "count increments to 1"
+  },
+  {
+    "action": "assert_text",
+    "selector": "[data-testid=like-button]",
+    "value": "Liked",
+    "name": "label flips to Liked"
+  },
+  {
+    "action": "click",
+    "selector": "[data-testid=like-button]",
+    "name": "click again to unlike"
+  },
+  {
+    "action": "assert_text",
+    "selector": "[data-testid=like-count]",
+    "value": "0",
+    "name": "count returns to 0 — reverse path works"
+  },
+  {
+    "action": "press",
+    "value": "Tab",
+    "name": "keyboard reaches the control",
+    "screenshot": false
+  },
+  {
+    "action": "eval",
+    "value": "document.activeElement.getAttribute('data-testid')",
+    "name": "focus target — confirm it is reachable"
+  }
+]
