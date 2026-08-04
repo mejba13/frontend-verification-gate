@@ -1,0 +1,14 @@
+# Verification output — evidence, not source
+.verify/
+*.skill
+
+# Saved browser sessions may contain auth tokens — never commit
+storage-state.json
+**/storage-state.json
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.DS_Store

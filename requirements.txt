@@ -1,0 +1,5 @@
+# Core: browser automation for the verification sweep
+playwright>=1.40
+
+# Optional: enables --baseline pixel diffing. Safe to omit.
+Pillow>=10.0
