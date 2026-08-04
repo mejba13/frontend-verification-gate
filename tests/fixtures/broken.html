@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Broken fixture — should FAIL</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; }
+    /* Deliberately fails WCAG contrast */
+    .faint { color: #bbbbbb; background: #ffffff; }
+    /* Deliberately overflows horizontally on mobile */
+    .wide { width: 1200px; height: 20px; background: #eee; }
+  </style>
+</head>
+<body>
+  <h1>Broken fixture</h1>
+  <!-- 404: proves network + console capture -->
+  <img src="/does-not-exist.png" alt="missing asset">
+  <p class="faint">Low contrast text.</p>
+  <div class="wide"></div>
+  <!-- No accessible name: proves the a11y scan works -->
+  <button data-testid="unnamed"></button>
+  <script>
+    // Uncaught exception: proves pageerror capture
+    setTimeout(() => { throw new Error('deliberate test failure'); }, 100);
+  </script>
+</body>
+</html>
