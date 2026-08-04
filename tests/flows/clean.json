@@ -1,0 +1,30 @@
+[
+  {
+    "action": "assert_visible",
+    "selector": "[data-testid=like]",
+    "name": "like button renders"
+  },
+  {
+    "action": "eval",
+    "value": "document.documentElement.scrollWidth - document.documentElement.clientWidth",
+    "name": "horizontal overflow px",
+    "screenshot": false
+  },
+  {
+    "action": "click",
+    "selector": "[data-testid=like]",
+    "name": "click like"
+  },
+  {
+    "action": "assert_text",
+    "selector": "[data-testid=count]",
+    "value": "1",
+    "name": "count increments"
+  },
+  {
+    "action": "assert_text",
+    "selector": "[data-testid=like]",
+    "value": "Liked",
+    "name": "label flips to Liked"
+  }
+]
